@@ -1,7 +1,7 @@
 @echo off
-title kz miniADB Toolbox - v1.0 BETA
+title kz miniADB Toolbox - v1.1 BETA
 
-set ADB_EXE="SOURCE\adb.exe"
+set ADB_EXE="adb.exe"
 
 :START_CHECK
 cls
@@ -12,12 +12,12 @@ echo     Iv       v   IV.VI I IV I I
 echo     I v     v    I   I I I vI I ADB TOOLBOX
 echo     I  v vvvvvv
 echo =================================================
-echo Kiem tra thiet bi ADB...
+echo Checking ADB devices...
 timeout /t 1 /nobreak > nul
 echo ===============
 %ADB_EXE% devices
 echo.
-echo Cho mot lat de khoi dong tools...
+echo Please wait...
 timeout /t 1 /nobreak > nul 
 goto MENU
 
@@ -25,22 +25,23 @@ goto MENU
 cls
 echo ===========================================
 echo                  Welcome!
-echo       kz miniADB Toolbox - v1.0 BETA
+echo       kz miniADB Toolbox - v1.1 BETA
+echo              English Version
 echo ===========================================
 echo .
-echo 1. Kiem tra danh sanh cac thiet bi dang ket noi
-echo 2. Khoi dong lai thiet bi
-echo 3. Khoi dong lai vao che do Recovery
-echo 4. Khoi dong lai vao che do Bootloader/Fastboot
-echo 5. Cai dat mot file APK (adb install)
-echo 6. Chay Shell
-echo 7. Xem logcat
-echo 8. Trinh chieu man hinh qua ADB
-echo 9. Thong tin phien ban va nha phat trien
-echo 10. Thoat tools
+echo 1. Checking ADB devices list
+echo 2. Reboot device
+echo 3. Reboot Recovery
+echo 4. Reboot Bootloader/Fastboot
+echo 5. APK Installer
+echo 6. ADB Shell
+echo 7. ADB logcat
+echo 8. Screen mirroring via ADB
+echo 9. About version and developer
+echo 10. Exit
 echo .
 echo ===========================================
-set /p "choice=Nhap lua chon cua ban (1-9): "
+set /p "choice=Choose your mode (1-9): "
 
 if "%choice%"=="1" goto listdevices
 if "%choice%"=="2" goto reboot
@@ -57,7 +58,7 @@ goto MENU
 :: -------------------------------------------
 :listdevices
 cls
-echo Dang kiem tra cac thiet bi da ket noi...
+echo Checking devices...
 %ADB_EXE% devices
 echo.
 pause
@@ -66,7 +67,7 @@ goto MENU
 :: -------------------------------------------
 :reboot
 cls
-echo Dang khoi dong lai thiet bi, vui long cho...
+echo Rebooting devices...
 %ADB_EXE% reboot
 echo.
 pause
@@ -75,7 +76,7 @@ goto MENU
 :: -------------------------------------------
 :rebootrecover
 cls
-echo Dang khoi dong lai vao che do Recovery, vui long cho...
+echo Reboot Recovery...
 %ADB_EXE% reboot recovery
 echo.
 pause
@@ -84,7 +85,7 @@ goto MENU
 :: -------------------------------------------
 :rebootbld
 cls
-echo Dang khoi dong lai vao che do Bootloader/Fastboot, vui long cho...
+echo Reboot Bootloader/Fastboot...
 %ADB_EXE% reboot bootloader
 echo.
 pause
@@ -93,10 +94,10 @@ goto MENU
 :: -------------------------------------------
 :apkinstall
 cls
-echo Cai dat file APK
-echo Cach thuc hien: Vui long keo file apk muon cai dat vao thu muc chua tool nay.
-set /p "apk_path=Nhap ten file APK (vi du: games.apk): "
-echo Dang cai dat %apk_path%...
+echo APK Installer
+echo How to install: Drag path/drag file here
+set /p "apk_path=Drag path/apk file here: "
+echo Install %apk_path%...
 %ADB_EXE% install "%apk_path%"
 echo.
 pause
@@ -105,10 +106,10 @@ goto MENU
 :: -------------------------------------------
 :shell
 cls
-echo Chay ADB Shell.
-echo Ban dang o muc ADB Shell. De thoat, go "exit" va nhan Enter.
+echo ADB Shell.
+echo You're now in ADB Shell. To exit, type "exit" and hit Enter.
 %ADB_EXE% shell
-echo NHAN ENTER DE THOAT...
+echo Hit ENTER to exit...
 echo.
 pause
 goto MENU
@@ -116,7 +117,7 @@ goto MENU
 :: -------------------------------------------
 :logcat
 cls
-echo Dang trich xuat logcat (Nhan to hop Ctrl+C roi nhan Y de thoat).
+echo Extracting logcat... (Press Ctrl+C then press Y to exit).
 %ADB_EXE% logcat
 echo.
 pause
@@ -134,15 +135,17 @@ echo   I  v vvvvvv
 echo .
 echo =========================================== 
 echo kz miniADB Toolbox
-echo version 1.0 - BETA
+echo version 1.1 - BETA
+echo English ver.
 echo -------------
 echo DEVELOPER: khoaz1003
 echo -
 echo Contact : vokhoa197791@gmail.com
 echo Social Media: tiktok.com/@khoaz1003
 echo               fackbook.com/@khoaz1003
+echo               github.com/khoaz1003
 echo -------------
-echo Cam on vi ban da su dung tools!
+echo Thank you for choosing kzminiADB Toolbox!
 echo . 
 echo .
 echo .
@@ -153,24 +156,23 @@ goto MENU
 ::-------------------------------------------
 :screenmirror-newtest
 cls
-echo Trinh chieu man hinh dien thoai qua Scrcpy
-echo Vui long cho mot chut....
+echo Screen mirroring via Scrcpy
+echo Please wait....
 echo .
 echo .
 timeout /t 1 /nobreak > nul
-"SOURCE/scrcpy.exe"
+"scrcpy.exe"
 echo .
-echo Neu co thong bao 'Could not f1nd any ADB device' nghia la khong co thiet bi nao dang ket noi. 
-echo Vui long kiem tra lai thiet bi, day cap hoac dung lenh so 1 de kiem tra lai ket noi ADB.
 echo .
-echo Nhan ENTER de thoat.
+echo .
+echo hit ENTER to exit.
 echo . 
 pause
 goto MENU
 ::-------------------------------------------
 :END
 cls
-echo Dang don dep...
-echo Tam biet! cam on vi ban da su dung tools!
-timeout /t 1 /nobreak > nul
+echo Cleaning up...
+echo Thank you for choosing kzminiADB Toolbox!
+timeout /t 2 /nobreak > nul
 exit
