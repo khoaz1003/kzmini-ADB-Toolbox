@@ -1,16 +1,16 @@
 @echo off
-title kz miniADB Toolbox - v1.1 BETA
+title kzminiADB Toolbox - v1.0
 
 set ADB_EXE="adb.exe"
 
 :START_CHECK
 cls
 echo =================================================
-echo     I  v  
-echo     I v  vvvvvv   
-echo     Iv       v   IV.VI I IV I I
-echo     I v     v    I   I I I vI I ADB TOOLBOX
-echo     I  v vvvvvv
+echo      I  v  
+echo      I v  vvvvvv   
+echo      Iv       v   IV.VI I IV I I
+echo      I v     v    I   I I I vI I ADB TOOLBOX
+echo      I  v vvvvvv
 echo =================================================
 echo Kiem tra thiet bi ADB...
 timeout /t 1 /nobreak > nul
@@ -24,16 +24,15 @@ goto MENU
 :MENU
 cls
 echo ===========================================
-echo                  Welcome!
-echo       kz miniADB Toolbox - v1.1 BETA
-echo             Vietnamese Version
+echo          kzminiADB Toolbox - v1.0
+echo                 Vietnamese
 echo ===========================================
 echo .
-echo 1. Kiem tra danh sanh cac thiet bi dang ket noi
+echo 1. Kiem tra danh sanh thiet bi dang ket noi
 echo 2. Khoi dong lai thiet bi
-echo 3. Khoi dong lai vao che do Recovery
-echo 4. Khoi dong lai vao che do Bootloader/Fastboot
-echo 5. Cai dat mot file APK (adb install)
+echo 3. Khoi dong lai vao Recovery
+echo 4. Khoi dong lai vao Bootloader/Fastboot
+echo 5. Cai dat file APK
 echo 6. Chay Shell
 echo 7. Xem logcat
 echo 8. Trinh chieu man hinh qua ADB
@@ -41,7 +40,7 @@ echo 9. Thong tin phien ban va nha phat trien
 echo 10. Thoat tools
 echo .
 echo ===========================================
-set /p "choice=Nhap lua chon cua ban (1-9): "
+set /p "choice=Nhap lua chon cua ban (1-10): "
 
 if "%choice%"=="1" goto listdevices
 if "%choice%"=="2" goto reboot
@@ -95,8 +94,7 @@ goto MENU
 :apkinstall
 cls
 echo Cai dat file APK
-echo Cach thuc hien: Vui long keo file apk muon cai dat vao thu muc chua tool nay.
-set /p "apk_path=Nhap ten file APK (vi du: games.apk): "
+set /p "apk_path=Keo tha file apk hoac duong dan file vao day: "
 echo Dang cai dat %apk_path%...
 %ADB_EXE% install "%apk_path%"
 echo.
@@ -126,24 +124,30 @@ goto MENU
 :ABOUT
 cls
 echo ===========================================
-echo        ABOUT VERSION and DEVELOPER
+echo  Thong ve tin phien ban va nha phat trien
+echo .
 echo   I  v  
 echo   I v  vvvvvv   
-echo   Iv       v   IV.VI I IV I I
-echo   I v     v    I   I I I vI I ADB TOOLBOX
+echo   Iv       v  IV.VI I IV I I
+echo   I v     v   I   I I I vI I ADB TOOLBOX   
 echo   I  v vvvvvv
 echo .
 echo =========================================== 
-echo kz miniADB Toolbox
-echo version 1.1 - BETA
-echo Vietnamese ver.
+echo kzminiADB Toolbox
+echo version 1.0
+echo Vietnamese
 echo -------------
 echo DEVELOPER: khoaz1003
 echo -
-echo Contact : vokhoa197791@gmail.com
-echo Social Media: tiktok.com/@khoaz1003
-echo               fackbook.com/@khoaz1003
-echo               github.com/khoaz1003
+echo Email lien he: vokhoa197791@gmail.com
+echo Mang xa hoi:   tiktok.com/@khoaz1003
+echo                fackbook.com/@khoaz1003
+echo                github.com/khoaz1003
+echo -
+echo Neu co bat ki loi nao, xin vui long khieu nai ve email de nha phat trien co the fix som nhat.
+echo -
+echo Them thong tin ve tools hoac ban cap nhat moi vui long truy cap: 
+echo github.com/khoaz1003/kzmini-ADB-Toolbox
 echo -------------
 echo Cam on vi ban da su dung tools!
 echo . 
@@ -163,8 +167,7 @@ echo .
 timeout /t 1 /nobreak > nul
 "scrcpy.exe"
 echo .
-echo Neu co thong bao 'Could not f1nd any ADB device' nghia la khong co thiet bi nao dang ket noi. 
-echo Vui long kiem tra lai thiet bi, day cap hoac dung lenh so 1 de kiem tra lai ket noi ADB.
+echo .
 echo .
 echo Nhan ENTER de thoat.
 echo . 
