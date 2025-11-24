@@ -1,16 +1,16 @@
 @echo off
-title kz miniADB Toolbox - v1.1 BETA
+title kzminiADB Toolbox - v1.0
 
 set ADB_EXE="adb.exe"
 
 :START_CHECK
 cls
 echo =================================================
-echo     I  v  
-echo     I v  vvvvvv   
-echo     Iv       v   IV.VI I IV I I
-echo     I v     v    I   I I I vI I ADB TOOLBOX
-echo     I  v vvvvvv
+echo      I  v  
+echo      I v  vvvvvv   
+echo      Iv       v  IV.VI I IV I I
+echo      I v     v   I   I I I vI I ADB TOOLBOX
+echo      I  v vvvvvv
 echo =================================================
 echo Checking ADB devices...
 timeout /t 1 /nobreak > nul
@@ -24,9 +24,8 @@ goto MENU
 :MENU
 cls
 echo ===========================================
-echo                  Welcome!
-echo       kz miniADB Toolbox - v1.1 BETA
-echo              English Version
+echo          kzminiADB Toolbox - v1.0
+echo                  English
 echo ===========================================
 echo .
 echo 1. Checking ADB devices list
@@ -41,7 +40,7 @@ echo 9. About version and developer
 echo 10. Exit
 echo .
 echo ===========================================
-set /p "choice=Choose your mode (1-9): "
+set /p "choice=Choose your mode (1-10): "
 
 if "%choice%"=="1" goto listdevices
 if "%choice%"=="2" goto reboot
@@ -58,7 +57,7 @@ goto MENU
 :: -------------------------------------------
 :listdevices
 cls
-echo Checking devices...
+echo Checking ADB devices...
 %ADB_EXE% devices
 echo.
 pause
@@ -126,7 +125,8 @@ goto MENU
 :ABOUT
 cls
 echo ===========================================
-echo        ABOUT VERSION and DEVELOPER
+echo      About this Version and Developer
+echo .
 echo   I  v  
 echo   I v  vvvvvv   
 echo   Iv       v   IV.VI I IV I I
@@ -134,8 +134,8 @@ echo   I v     v    I   I I I vI I ADB TOOLBOX
 echo   I  v vvvvvv
 echo .
 echo =========================================== 
-echo kz miniADB Toolbox
-echo version 1.1 - BETA
+echo kzminiADB Toolbox
+echo version 1.0
 echo English ver.
 echo -------------
 echo DEVELOPER: khoaz1003
@@ -144,11 +144,16 @@ echo Contact : vokhoa197791@gmail.com
 echo Social Media: tiktok.com/@khoaz1003
 echo               fackbook.com/@khoaz1003
 echo               github.com/khoaz1003
+echo -
+echo If there are any errors, please report them to the email address so I can fix them as soon as possible.
+echo - 
+echo More infos and download new updates at:
+echo github.com/khoaz1003/kzmini-ADB-Toolbox
 echo -------------
 echo Thank you for choosing kzminiADB Toolbox!
 echo . 
 echo .
-echo .
+echo .a
 echo .
 echo .
 pause
